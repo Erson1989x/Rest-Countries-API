@@ -54,6 +54,86 @@ header {
     cursor: pointer;
 }
 
+.nav-container button i {
+    font-size: 1rem;
+}
+
+/*--- Main ---*/
+
+main {
+    background-color: var(--very-dark-blue);
+    height: 100%;
+    width: 100%;
+}
+
+.search-filter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+    padding: 1.5rem 1rem;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    width: 100%;
+    background-color: var(--dark-blue);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+}
+
+.search-container i {
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.search-container input {
+    background-color: var(--dark-blue);
+    border: none;
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    width: 100%;
+}
+
+.search-container input::placeholder {
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.filter-container {
+    width: 50%;
+    background-color: var(--dark-blue);
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.filter-container select {
+    background-color: var(--dark-blue);
+    border: none;
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 500;
+    width: 100%;
+    cursor: pointer;
+}
+
+.filter-container select option {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/*--- Media Queries ---*/
+
 @media screen and (min-width: 1024px) {
 
 /*--- Navbar ---*/
@@ -67,5 +147,9 @@ header {
 
     .nav-container button {
         font-size: 1rem;
+    }
+
+    .nav-container button i {
+        font-size: 1.25rem;
     }
 }
