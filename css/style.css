@@ -105,31 +105,47 @@ main {
 }
 
 .filter-container {
-    width: 50%;
+    width: 200px;
     background-color: var(--dark-blue);
     padding: 0.875rem 1.5rem;
     border-radius: 0.5rem;
-    border: none;
-    color: var(--white);
-    font-size: 0.75rem;
-    font-weight: 500;
-}
-
-.filter-container select {
-    background-color: var(--dark-blue);
-    border: none;
-    color: var(--white);
-    font-size: 0.75rem;
-    font-weight: 500;
-    width: 100%;
+    position: relative;
     cursor: pointer;
 }
 
-.filter-container select option {
+.costum-select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.costum-select .selected {
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.costum-select i {
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.select-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
     background-color: var(--dark-blue);
+    width: 100%;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    z-index: 1;
     color: var(--white);
     font-size: 0.75rem;
     font-weight: 500;
+    display: none;
 }
 
 /*--- Media Queries ---*/
@@ -151,5 +167,42 @@ main {
 
     .nav-container button i {
         font-size: 1.25rem;
+    }
+
+    /*--- Main ---*/
+
+    .search-filter-container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 3rem 5rem;
+    }
+
+    .search-container {
+        width: 480px;
+        padding: 1.125rem 2rem;
+    }
+
+    .search-container i {
+        font-size: 1.25rem;
+    }
+
+    .search-container input {
+        font-size: 0.875rem;
+    }
+
+    .filter-container {
+        padding: 1.125rem 1.5rem;
+    }
+
+    .costum-select .selected {
+        font-size: 0.875rem;
+    }
+
+    .costum-select i {
+        font-size: 1.25rem;
+    }
+
+    .select-items {
+        font-size: 0.875rem;
     }
 }

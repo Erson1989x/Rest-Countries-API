@@ -27,14 +27,18 @@
                 <input type="text" placeholder="Search for a country..." id="search-input">
             </div>
             <div class="filter-container">
-                <select id="region-filter">
-                    <option value="all">Filter by Region</option>
-                    <option value="africa">Africa</option>
-                    <option value="america">America</option>
-                    <option value="asia">Asia</option>
-                    <option value="europe">Europe</option>
-                    <option value="oceania">Oceania</option>
-                </select>
+                <div class="costum-select">
+                    <div class="selected">Filter by Region</div>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="select-items select-hide">
+                        <div data-value="all">Filter by Region</div>
+                        <div data-value="africa">Africa</div>
+                        <div data-value="america">America</div>
+                        <div data-value="asia">Asia</div>
+                        <div data-value="europe">Europe</div>
+                        <div data-value="oceania">Oceania</div>
+                    </div>
+                </div>
             </div>
         </div>
 
