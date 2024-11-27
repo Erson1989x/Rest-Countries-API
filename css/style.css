@@ -1,0 +1,71 @@
+/*--- Reset CSS ---*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-blue: hsl(209, 23%, 22%);
+    --very-dark-blue: hsl(207, 26%, 17%);
+    --very-dark-blue-text: hsl(200, 15%, 8%);
+    --dark-gray: hsl(0, 0%, 52%);
+    --very-light-gray: hsl(0, 0%, 98%);
+    --white: hsl(0, 0%, 100%);
+}
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: var(--very-light-gray);
+    height: 100vh;
+    width: 100%;
+}
+
+/*--- Navbar ---*/
+
+header {
+    background-color: var(--dark-blue);
+
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.875rem 1rem;
+}
+
+.nav-container h1 {
+    color: var(--white);
+    font-size: 0.875rem;
+    font-weight: 800;
+}
+
+.nav-container button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: transparent;
+    border: none;
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1024px) {
+
+/*--- Navbar ---*/
+    .nav-container {
+        padding: 1.5rem 5rem;
+    }
+
+    .nav-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .nav-container button {
+        font-size: 1rem;
+    }
+}
