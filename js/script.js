@@ -4,8 +4,11 @@ import initFilter from "./filter.js";
 const countriesContainer = document.getElementById('countries-container');
 const searchInput = document.getElementById('search-input');
 
-// Initialize features
+// Initialize dark mode
 initDarkMode();
+
+// Store countries globally
+window.countries = [];
 
 window.displayCountries = (countriesData) => {
     countriesContainer.innerHTML = '';
@@ -14,15 +17,13 @@ window.displayCountries = (countriesData) => {
         const countryCard = document.createElement('div');
         countryCard.className = 'country-card';
         countryCard.onclick = () => {
-            // Store the selected country in localStorage
             localStorage.setItem('selectedCountry', JSON.stringify(country));
-            // Navigate to country detail page
             window.location.href = 'country.html';
         };
 
         countryCard.innerHTML = `
             <img src="${country.flags.png}" alt="${country.name.common} flag">
-            <div class="country-info">
+            <div class="country-info-two">
                 <h2>${country.name.common}</h2>
                 <p><strong>Population:</strong> ${country.population.toLocaleString()}</p>
                 <p><strong>Region:</strong> ${country.region}</p>
@@ -51,15 +52,20 @@ const fetchCountries = async () => {
 
 const searchCountry = (search) => {
     if (!window.countries) return;
+    
     const filteredCountries = window.countries.filter((country) => 
         country.name.common.toLowerCase().includes(search.toLowerCase())
     );
     window.displayCountries(filteredCountries);
 };
 
+// Initialize the page
 fetchCountries();
 
-searchInput.addEventListener('input', () => {
-    const search = searchInput.value;
-    searchCountry(search);
-});
+// Add search functionality
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        const search = e.target.value;
+        searchCountry(search);
+    });
+}
