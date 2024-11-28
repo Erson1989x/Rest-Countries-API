@@ -13,6 +13,12 @@ window.displayCountries = (countriesData) => {
     countriesData.forEach(country => {
         const countryCard = document.createElement('div');
         countryCard.className = 'country-card';
+        countryCard.onclick = () => {
+            // Store the selected country in localStorage
+            localStorage.setItem('selectedCountry', JSON.stringify(country));
+            // Navigate to country detail page
+            window.location.href = 'country.html';
+        };
 
         countryCard.innerHTML = `
             <img src="${country.flags.png}" alt="${country.name.common} flag">
@@ -52,7 +58,6 @@ const searchCountry = (search) => {
 };
 
 fetchCountries();
-
 
 searchInput.addEventListener('input', () => {
     const search = searchInput.value;
