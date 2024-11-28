@@ -6,23 +6,8 @@ const searchInput = document.getElementById('search-input');
 
 // Initialize features
 initDarkMode();
-initFilter();
 
-let countries = [];
-
-const fetchCountries = async () => {
-    try {
-        const res = await fetch('https://restcountries.com/v3.1/all');
-        const data = await res.json();
-        countries = data;
-        displayCountries(data);
-    } catch (error) {
-        console.error('Error fetching countries:', error);
-        countriesContainer.innerHTML = '<p>Error loading countries. Please try again later.</p>';
-    }
-};
-
-const displayCountries = (countriesData) => {
+window.displayCountries = (countriesData) => {
     countriesContainer.innerHTML = '';
 
     countriesData.forEach(country => {
@@ -43,20 +28,33 @@ const displayCountries = (countriesData) => {
     });
 };
 
-const searchCountry = (search) => {
-    const filteredCountries = countries.filter((country) => 
-        country.name.common.toLowerCase().includes(search.toLowerCase())
-    );
-    displayCountries(filteredCountries);
+const fetchCountries = async () => {
+    try {
+        const res = await fetch('https://restcountries.com/v3.1/all');
+        const data = await res.json();
+        // Set the global countries variable
+        window.countries = data;
+        window.displayCountries(data);
+        // Initialize filter after we have the data
+        initFilter();
+    } catch (error) {
+        console.error('Error fetching countries:', error);
+        countriesContainer.innerHTML = '<p>Error loading countries. Please try again later.</p>';
+    }
 };
 
+const searchCountry = (search) => {
+    if (!window.countries) return;
+    const filteredCountries = window.countries.filter((country) => 
+        country.name.common.toLowerCase().includes(search.toLowerCase())
+    );
+    window.displayCountries(filteredCountries);
+};
 
 fetchCountries();
+
 
 searchInput.addEventListener('input', () => {
     const search = searchInput.value;
     searchCountry(search);
 });
-
-window.displayCountries = displayCountries;
-window.countries = countries;

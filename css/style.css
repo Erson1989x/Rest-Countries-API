@@ -156,6 +156,13 @@ main {
     display: none;
     box-shadow: var(--shadow);
 }
+
+.select-items div {
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--radius);
+    
+}
 /*--- Countries Container ---*/
 
 #countries-container {
