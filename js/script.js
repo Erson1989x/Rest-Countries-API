@@ -1,11 +1,12 @@
 import initDarkMode from "./darkMode.js";
+import initFilter from "./filter.js";
 
 const countriesContainer = document.getElementById('countries-container');
 const searchInput = document.getElementById('search-input');
-const filterSelect = document.querySelector('.costum-select');
 
-
+// Initialize features
 initDarkMode();
+initFilter();
 
 let countries = [];
 
@@ -42,11 +43,6 @@ const displayCountries = (countriesData) => {
     });
 };
 
-const filterByRegion = (region) => {
-    const filteredCountries = countries.filter((country) => country.region === region);
-    displayCountries(filteredCountries);
-};
-
 const searchCountry = (search) => {
     const filteredCountries = countries.filter((country) => 
         country.name.common.toLowerCase().includes(search.toLowerCase())
@@ -54,20 +50,13 @@ const searchCountry = (search) => {
     displayCountries(filteredCountries);
 };
 
-// Initial fetch of countries
+
 fetchCountries();
 
-// Event Listeners
 searchInput.addEventListener('input', () => {
     const search = searchInput.value;
     searchCountry(search);
 });
 
-filterSelect.addEventListener('click', () => {
-    filterSelect.classList.toggle('select-hide');
-});
-
-filterSelect.addEventListener('change', (event) => {
-    const region = event.target.value;
-    filterByRegion(region);
-});
+window.displayCountries = displayCountries;
+window.countries = countries;
