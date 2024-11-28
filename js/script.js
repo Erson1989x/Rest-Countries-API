@@ -1,5 +1,5 @@
-import initDarkMode from "./darkMode.js";
-import initFilter from "./filter.js";
+import initDarkMode from "../js/darkMode.js";
+import initFilter from "../js/filter.js";
 
 const countriesContainer = document.getElementById('countries-container');
 const searchInput = document.getElementById('search-input');

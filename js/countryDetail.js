@@ -1,4 +1,4 @@
-import initDarkMode from './darkMode.js';
+import initDarkMode from '../js/darkMode.js';
 
 // Initialize dark mode
 initDarkMode();
