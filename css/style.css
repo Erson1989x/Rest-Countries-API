@@ -1,469 +1,463 @@
-@import url('variables.css');
+@import url("variables.css");
 /*--- Reset CSS ---*/
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --dark-blue: hsl(209, 23%, 22%);
-    --very-dark-blue: hsl(207, 26%, 17%);
-    --very-dark-blue-text: hsl(200, 15%, 8%);
-    --dark-gray: hsl(0, 0%, 52%);
-    --very-light-gray: hsl(0, 0%, 98%);
-    --white: hsl(0, 0%, 100%);
+  --dark-blue: hsl(209, 23%, 22%);
+  --very-dark-blue: hsl(207, 26%, 17%);
+  --very-dark-blue-text: hsl(200, 15%, 8%);
+  --dark-gray: hsl(0, 0%, 52%);
+  --very-light-gray: hsl(0, 0%, 98%);
+  --white: hsl(0, 0%, 100%);
 }
 
 body {
-    font-family: 'Nunito Sans', sans-serif;
-    background-color: var(--background);
-    color: var(--text);
-    transition: var(--transition);
-    height: 100vh;
-    width: 100%;
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  transition: var(--transition);
+  height: 100vh;
+  width: 100%;
 }
 
 /*--- Navbar ---*/
 
 header {
-    background-color: var(--elements);
-    box-shadow: var(--shadow);
-
+  background-color: var(--elements);
+  box-shadow: var(--shadow);
 }
 
 .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.875rem 1rem;
-    box-shadow: var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.875rem 1rem;
+  box-shadow: var(--shadow);
 }
 
 .nav-container h1 {
-    color: var(--text);
-    font-size: 0.875rem;
-    font-weight: 800;
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 800;
 }
 
 .nav-container button {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: transparent;
-    border: none;
-    color: var(--text);
-    font-size: 0.75rem;
-    font-weight: 500;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .nav-container button i {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 /*--- Main ---*/
 
 main {
-    background-color: var(--background);
-    height: 100%;
-    width: 100%;
+  background-color: var(--background);
+  height: 100%;
+  width: 100%;
 }
 
 .search-filter-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2.5rem;
-    padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+  padding: 1.5rem 1rem;
 }
 
 .search-container {
-    display: flex;
-    align-items: center;
-    gap: 1.75rem;
-    width: 100%;
-    background-color: var(--elements);
-    padding: 1rem 2rem;
-    border-radius: var(--radius);
-    cursor: pointer;
-    box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  width: 100%;
+  background-color: var(--elements);
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  box-shadow: var(--shadow);
 }
 
 .search-container i {
-    color: var(--text);
-    font-size: 1rem;
+  color: var(--text);
+  font-size: 1rem;
 }
 
 .search-container input {
-    background-color: var(--elements);
-    border: none;
-    color: var(--text);
-    font-size: 0.75rem;
-    font-weight: 600;
-    width: 100%;
+  background-color: var(--elements);
+  border: none;
+  color: var(--text);
+  font-size: 0.75rem;
+  font-weight: 600;
+  width: 100%;
 }
 
 .search-container input::placeholder {
-    color: var(--text);
-    font-size: 0.75rem;
-    font-weight: 500;
+  color: var(--text);
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
 .filter-container {
-    width: 200px;
-    background-color: var(--elements);
-    padding: 0.875rem 1.5rem;
-    border-radius: var(--radius);
-    position: relative;
-    cursor: pointer;
-    box-shadow: var(--shadow);
+  width: 200px;
+  background-color: var(--elements);
+  padding: 0.875rem 1.5rem;
+  border-radius: var(--radius);
+  position: relative;
+  cursor: pointer;
+  box-shadow: var(--shadow);
 }
 
 .costum-select {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .costum-select .selected {
-    color: var(--text);
-    font-size: 0.75rem;
-    font-weight: 600;
+  color: var(--text);
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
 .costum-select i {
-    color: var(--text);
-    font-size: 1rem;
+  color: var(--text);
+  font-size: 1rem;
 }
 
 .select-items {
-   /* display: flex;
+  /* display: flex;
     flex-direction: column;*/
-    gap: 0.5rem;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--elements);
-    width: 100%;
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    z-index: 1;
-    color: var(--text);
-    font-size: 0.75rem;
-    font-weight: 500;
-    display: none;
-    box-shadow: var(--shadow);
+  gap: 0.5rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--elements);
+  width: 100%;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  z-index: 1;
+  color: var(--text);
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: none;
+  box-shadow: var(--shadow);
 }
 
 .select-items div {
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: var(--radius);
-
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--radius);
 }
 /*--- Countries Container ---*/
 
 #countries-container {
-    background-color: var(--background);
-    padding: 4rem 3.5rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(264px, 1fr));
-    gap: 4rem;
-    overflow-y: scroll;
-    height: 100%;
-    width: 100%;
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  background-color: var(--background);
+  padding: 4rem 3.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(264px, 1fr));
+  gap: 4rem;
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 #countries-container::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .country-card {
-    background-color: transparent;
-    border-radius: var(--radius);
-    scroll-snap-align: start;
-    height: 100%;
+  background-color: transparent;
+  border-radius: var(--radius);
+  scroll-snap-align: start;
+  height: 100%;
 }
 
 .country-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    height: 100%;
-    outline: none;
-    padding: 0;
-    background-color: var(--elements);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    transition: transform 0.2s ease;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  outline: none;
+  padding: 0;
+  background-color: var(--elements);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
 }
 
 .country-link:focus,
 .country-link:focus-visible {
-    outline: 3px solid var(--dark-blue);
-    outline-offset: 2px;
+  outline: 3px solid var(--dark-blue);
+  outline-offset: 2px;
 }
 
 .dark-mode .country-link:focus,
 .dark-mode .country-link:focus-visible {
-    outline-color: var(--white);
+  outline-color: var(--white);
 }
 
 .country-link:focus:not(:focus-visible) {
-    outline: none;
+  outline: none;
 }
 
 .country-link:hover {
-    transform: translateY(-4px);
+  transform: translateY(-4px);
 }
 
 .country-link img {
-    width: 100%;
-    height: 160px;
-    border-radius: var(--radius) var(--radius) 0 0;
-    object-fit: cover;
+  width: 100%;
+  height: 160px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  object-fit: cover;
 }
 
 .country-info-two {
-    padding: 1.5rem;
-    margin-bottom: 2rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .country-info-two h2 {
-    color: var(--text);
-    font-size: 1.125rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
+  color: var(--text);
+  font-size: 1.125rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
 }
 
 .country-info-two p {
-    color: var(--text);
-    font-size: 0.875rem;
-    margin-bottom: 0.5rem;
+  color: var(--text);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
 }
 
 .country-info-two p:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 /*--- Country Details ---*/
 
 .detail-container {
-    background-color: var(--background);
-    display: flex;
-    padding: 2.5rem 1.75rem;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+  background-color: var(--background);
+  display: flex;
+  padding: 2.5rem 1.75rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .back-button {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: var(--elements);
-    border-radius: var(--radius);
-    padding: 0.375rem 1.5rem;
-    color: var(--text);
-    font-size: 0.875rem;
-    cursor: pointer;
-    box-shadow: var(--shadow);
-    border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--elements);
+  border-radius: var(--radius);
+  padding: 0.375rem 1.5rem;
+  color: var(--text);
+  font-size: 0.875rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  border: none;
 }
 
 .back-button i {
-    font-size: 1.125rem;
+  font-size: 1.125rem;
 }
 
 .country-detail {
-    display: flex;
-    flex-direction: column;
-    margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
 }
 
 .country-detail img {
-    width: 320px;
-    height: 229px;
-    border-radius: var(--radius);
-    object-fit: cover;
+  width: 320px;
+  height: 229px;
+  border-radius: var(--radius);
+  object-fit: cover;
 }
 
 .country-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0;
 }
 
 .country-info h1 {
-    color: var(--text);
-    font-size: 1.375rem;
-    font-weight: 800;
-    margin-top: 2.75rem;
-    margin-bottom: 0.5rem;
+  color: var(--text);
+  font-size: 1.375rem;
+  font-weight: 800;
+  margin-top: 2.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .country-info p {
-    color: var(--text);
-    font-size: 0.875rem;
-    margin-bottom: 0.5rem;
+  color: var(--text);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
 }
 
 .country-info p strong {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .detail-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
 
 .left-col {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .right-col {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .border-countries {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    gap: 0.625rem;
-    margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 0.625rem;
+  margin-top: 1.5rem;
 }
 
 .border-country {
-    background-color: var(--elements);
-    border-radius: var(--radius);
-    padding: 0.375rem 1.875rem;
-    color: var(--text);
-    font-size: 0.75rem;
-    cursor: pointer;
-    box-shadow: var(--shadow);
+  background-color: var(--elements);
+  border-radius: var(--radius);
+  padding: 0.375rem 1.875rem;
+  color: var(--text);
+  font-size: 0.75rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
 }
-
-
 
 /*--- Media Queries ---*/
 
 @media screen and (min-width: 1024px) {
+  /*--- Navbar ---*/
+  .nav-container {
+    padding: 1.5rem 5rem;
+  }
 
-/*--- Navbar ---*/
-    .nav-container {
-        padding: 1.5rem 5rem;
-    }
+  .nav-container h1 {
+    font-size: 1.5rem;
+  }
 
-    .nav-container h1 {
-        font-size: 1.5rem;
-    }
+  .nav-container button {
+    font-size: 1rem;
+  }
 
-    .nav-container button {
-        font-size: 1rem;
-    }
+  .nav-container button i {
+    font-size: 1.25rem;
+  }
 
-    .nav-container button i {
-        font-size: 1.25rem;
-    }
+  /*--- Main ---*/
 
-    /*--- Main ---*/
+  .search-filter-container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 3rem 5rem;
+  }
 
-    .search-filter-container {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 3rem 5rem;
-    }
+  .search-container {
+    width: 480px;
+    padding: 1.125rem 2rem;
+  }
 
-    .search-container {
-        width: 480px;
-        padding: 1.125rem 2rem;
-    }
+  .search-container i {
+    font-size: 1.25rem;
+  }
 
-    .search-container i {
-        font-size: 1.25rem;
-    }
+  .search-container input {
+    font-size: 0.875rem;
+  }
 
-    .search-container input {
-        font-size: 0.875rem;
-    }
+  .filter-container {
+    padding: 1.125rem 1.5rem;
+  }
 
-    .filter-container {
-        padding: 1.125rem 1.5rem;
-    }
+  .costum-select .selected {
+    font-size: 0.875rem;
+  }
 
-    .costum-select .selected {
-        font-size: 0.875rem;
-    }
+  .costum-select i {
+    font-size: 1.25rem;
+  }
 
-    .costum-select i {
-        font-size: 1.25rem;
-    }
+  .select-items {
+    font-size: 0.875rem;
+  }
 
-    .select-items {
-        font-size: 0.875rem;
-    }
+  /*--- Countries Container ---*/
 
-    /*--- Countries Container ---*/
+  #countries-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 3rem 5rem;
+    gap: 4.75rem;
+  }
 
-    #countries-container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        padding: 3rem 5rem;
-        gap: 4.75rem;
-    }
+  /*--- Country Details ---*/
 
-    /*--- Country Details ---*/
+  .detail-container {
+    padding: 5rem 5rem;
+  }
 
-    .detail-container {
-        padding: 5rem 5rem;
-    }
+  .country-detail {
+    flex-direction: row;
+    gap: 9rem;
+  }
 
-    .country-detail {
-        flex-direction: row;
-        gap: 9rem;
-    }
+  .country-detail img {
+    width: 560px;
+    height: 400px;
+  }
 
-    .country-detail img {
-        width: 560px;
-        height: 400px;
-    }
+  .country-info {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
-    .country-info {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
+  .country-info h1 {
+    font-size: 2rem;
+    margin-bottom: 1.438rem;
+  }
 
-    .country-info h1 {
-        font-size: 2rem;
-        margin-bottom: 1.438rem;
-    }
+  .country-info p {
+    font-size: 1rem;
+  }
 
-    .country-info p {
-        font-size: 1rem;
-    }
+  .detail-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 
-    .detail-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .border-countries {
-        justify-content: flex-start;
-    }
-
+  .border-countries {
+    justify-content: flex-start;
+  }
 }
