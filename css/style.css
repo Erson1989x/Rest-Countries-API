@@ -168,9 +168,9 @@ main {
 #countries-container {
     background-color: var(--background);
     padding: 4rem 3.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(264px, 1fr));
+    gap: 4rem;
     overflow-y: scroll;
     height: 100%;
     width: 100%;
@@ -186,28 +186,53 @@ main {
 }
 
 .country-card {
-    background-color: var(--elements);
-    border-radius: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    background-color: transparent;
+    border-radius: var(--radius);
     scroll-snap-align: start;
-    box-shadow: var(--shadow);
-    cursor: pointer;
+    height: 100%;
 }
 
-.country-card img {
-    height: 160px;
+.country-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+    outline: none;
+    padding: 0;
+    background-color: var(--elements);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease;
+}
+
+.country-link:focus,
+.country-link:focus-visible {
+    outline: 3px solid var(--dark-blue);
+    outline-offset: 2px;
+}
+
+.dark-mode .country-link:focus,
+.dark-mode .country-link:focus-visible {
+    outline-color: var(--white);
+}
+
+.country-link:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.country-link:hover {
+    transform: translateY(-4px);
+}
+
+.country-link img {
     width: 100%;
+    height: 160px;
     border-radius: var(--radius) var(--radius) 0 0;
     object-fit: cover;
 }
 
 .country-info-two {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding:1.5rem;
+    padding: 1.5rem;
     margin-bottom: 2rem;
 }
 
@@ -215,16 +240,17 @@ main {
     color: var(--text);
     font-size: 1.125rem;
     font-weight: 800;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .country-info-two p {
     color: var(--text);
-    font-size: 0.75rem;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
 }
 
-.country-info-two p strong {
-    font-weight: 600;
+.country-info-two p:last-child {
+    margin-bottom: 0;
 }
 
 /*--- Country Details ---*/

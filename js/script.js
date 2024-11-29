@@ -10,29 +10,64 @@ initDarkMode();
 // Store countries globally
 window.countries = [];
 
-window.displayCountries = (countriesData) => {
+const displayCountries = (countries) => {
+    // Clear the container
     countriesContainer.innerHTML = '';
-
-    countriesData.forEach(country => {
-        const countryCard = document.createElement('div');
-        countryCard.className = 'country-card';
-        countryCard.onclick = () => {
-            localStorage.setItem('selectedCountry', JSON.stringify(country));
-            window.location.href = 'country.html';
-        };
-
-        countryCard.innerHTML = `
-            <img src="${country.flags.png}" alt="${country.name.common} flag">
-            <div class="country-info-two">
-                <h2>${country.name.common}</h2>
-                <p><strong>Population:</strong> ${country.population.toLocaleString()}</p>
-                <p><strong>Region:</strong> ${country.region}</p>
-                <p><strong>Capital:</strong> ${country.capital?.[0] || 'N/A'}</p>
-            </div>
+    
+    countries.forEach((country) => {
+        // Create article element
+        const article = document.createElement('article');
+        article.className = 'country-card';
+        
+        // Create link element
+        const link = document.createElement('a');
+        link.href = 'country.html';
+        link.className = 'country-link';
+        link.setAttribute('tabindex', '0');
+        link.setAttribute('aria-label', `View details for ${country.name.common}`);
+        
+        // Create and set image
+        const img = document.createElement('img');
+        img.src = country.flags.png;
+        img.alt = `Flag of ${country.name.common}`;
+        
+        // Create info container
+        const infoDiv = document.createElement('div');
+        infoDiv.className = 'country-info-two';
+        
+        // Add country information
+        infoDiv.innerHTML = `
+            <h2>${country.name.common}</h2>
+            <p><strong>Population:</strong> ${country.population.toLocaleString()}</p>
+            <p><strong>Region:</strong> ${country.region}</p>
+            <p><strong>Capital:</strong> ${country.capital?.[0] || 'N/A'}</p>
         `;
         
-        countriesContainer.appendChild(countryCard);
+        // Add click and keydown events
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            handleCountrySelection(country);
+        });
+
+        link.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleCountrySelection(country);
+            }
+        });
+        
+        // Assemble the card
+        link.appendChild(img);
+        link.appendChild(infoDiv);
+        article.appendChild(link);
+        countriesContainer.appendChild(article);
     });
+};
+
+// Separate function to handle country selection
+const handleCountrySelection = (country) => {
+    localStorage.setItem('selectedCountry', JSON.stringify(country));
+    window.location.href = 'country.html';
 };
 
 const fetchCountries = async () => {
@@ -41,7 +76,8 @@ const fetchCountries = async () => {
         const data = await res.json();
         // Set the global countries variable
         window.countries = data;
-        window.displayCountries(data);
+        // Display the countries
+        displayCountries(data);
         // Initialize filter after we have the data
         initFilter();
     } catch (error) {
@@ -56,16 +92,16 @@ const searchCountry = (search) => {
     const filteredCountries = window.countries.filter((country) => 
         country.name.common.toLowerCase().includes(search.toLowerCase())
     );
-    window.displayCountries(filteredCountries);
+    
+    displayCountries(filteredCountries);
 };
 
 // Initialize the page
-fetchCountries();
-
-// Add search functionality
-if (searchInput) {
+document.addEventListener('DOMContentLoaded', () => {
+    fetchCountries();
+    
+    // Add search functionality
     searchInput.addEventListener('input', (e) => {
-        const search = e.target.value;
-        searchCountry(search);
+        searchCountry(e.target.value);
     });
-}
+});
