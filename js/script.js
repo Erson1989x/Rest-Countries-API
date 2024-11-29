@@ -7,10 +7,9 @@ const searchInput = document.getElementById("search-input");
 // Initialize dark mode
 initDarkMode();
 
-// Store countries globally
+// Store countries and functions globally
 window.countries = [];
-
-const displayCountries = (countries) => {
+window.displayCountries = (countries) => {
   // Clear the container
   countriesContainer.innerHTML = "";
 
@@ -77,7 +76,7 @@ const fetchCountries = async () => {
     // Set the global countries variable
     window.countries = data;
     // Display the countries
-    displayCountries(data);
+    window.displayCountries(data);
     // Initialize filter after we have the data
     initFilter();
   } catch (error) {
@@ -94,7 +93,7 @@ const searchCountry = (search) => {
     country.name.common.toLowerCase().includes(search.toLowerCase())
   );
 
-  displayCountries(filteredCountries);
+  window.displayCountries(filteredCountries);
 };
 
 // Initialize the page
