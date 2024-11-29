@@ -30,7 +30,30 @@
         </button>
 
         <div class="country-detail">
-          <!-- Country details will be inserted here -->
+          <template id="country-detail-template">
+            <img class="country-flag" alt="country flag">
+            <div class="country-info">
+              <h1 class="country-name"></h1>
+              <div class="detail-grid">
+                <div class="left-col">
+                  <p><strong>Native Name: </strong><span class="native-name"></span></p>
+                  <p><strong>Population: </strong><span class="population"></span></p>
+                  <p><strong>Region: </strong><span class="region"></span></p>
+                  <p><strong>Sub Region: </strong><span class="subregion"></span></p>
+                  <p><strong>Capital: </strong><span class="capital"></span></p>
+                </div>
+                <div class="right-col">
+                  <p><strong>Top Level Domain: </strong><span class="domain"></span></p>
+                  <p><strong>Currencies: </strong><span class="currencies"></span></p>
+                  <p><strong>Languages: </strong><span class="languages"></span></p>
+                </div>
+              </div>
+              <div class="border-countries">
+                <p><strong>Border Countries:</strong></p>
+                <div class="border-countries-container"></div>
+              </div>
+            </div>
+          </template>
         </div>
       </div>
     </main>

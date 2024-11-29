@@ -3,9 +3,12 @@ import initDarkMode from "../js/darkMode.js";
 // Initialize dark mode
 initDarkMode();
 
-const countryDetailContainer = document.querySelector(".country-detail");
 
 const displayCountryDetail = async () => {
+
+  const countryDetailContainer = document.querySelector(".country-detail");
+  const template = document.querySelector("#country-detail-template");
+
   // Get the selected country from localStorage
   const selectedCountry = JSON.parse(localStorage.getItem("selectedCountry"));
 
@@ -26,61 +29,43 @@ const displayCountryDetail = async () => {
         return borderCountry ? borderCountry.name.common : border;
       }) || [];
 
-    // Create border countries HTML
-    const borderCountriesHTML =
-      borderCountries.length > 0
-        ? borderCountries
-            .map((country) => `<span class="border-country">${country}</span>`)
-            .join("")
-        : '<span class="border-country">None</span>';
+    // Clone the template
+    const clone = template.content.cloneNode(true);
 
-    countryDetailContainer.innerHTML = `
-            <img src="${selectedCountry.flags.png}" alt="${
-      selectedCountry.name.common
-    } flag">
-            <div class="country-info">
-                <h1>${selectedCountry.name.common}</h1>
-                <div class="detail-grid">
-                    <div class="left-col">
-                        <p><strong>Native Name: </strong>${
-                          Object.values(
-                            selectedCountry.name.nativeName || {}
-                          )[0]?.common || "N/A"
-                        }</p>
-                        <p><strong>Population: </strong>${selectedCountry.population.toLocaleString()}</p>
-                        <p><strong>Region: </strong>${
-                          selectedCountry.region
-                        }</p>
-                        <p><strong>Sub Region: </strong>${
-                          selectedCountry.subregion || "N/A"
-                        }</p>
-                        <p><strong>Capital: </strong>${
-                          selectedCountry.capital?.[0] || "N/A"
-                        }</p>
-                    </div>
-                    <div class="right-col">
-                        <p><strong>Top Level Domain: </strong>${
-                          selectedCountry.tld?.[0] || "N/A"
-                        }</p>
-                        <p><strong>Currencies: </strong>${
-                          Object.values(selectedCountry.currencies || {})
-                            .map((c) => c.name)
-                            .join(", ") || "N/A"
-                        }</p>
-                        <p><strong>Languages: </strong>${
-                          Object.values(selectedCountry.languages || {}).join(
-                            ", "
-                          ) || "N/A"
-                        }</p>
-                    </div>
-                </div>
-                <div class="border-countries">
-                    <strong>Border Countries: </strong>
-                    ${borderCountriesHTML}
-                </div>
-            </div>
-        `;
+    // Fill in the template with country data
+    clone.querySelector(".country-flag").src = selectedCountry.flags.png;
+    clone.querySelector(".country-flag").alt = `Flag of ${selectedCountry.name.common}`;
+    clone.querySelector(".country-name").textContent = selectedCountry.name.common;
+    clone.querySelector(".native-name").textContent = Object.values(selectedCountry.name.nativeName || {})[0].common || "N/A";
+    clone.querySelector(".population").textContent = selectedCountry.population.toLocaleString();
+    clone.querySelector(".region").textContent = selectedCountry.region;
+    clone.querySelector(".subregion").textContent = selectedCountry.subregion || "N/A";
+    clone.querySelector(".capital").textContent = selectedCountry.capital?.[0] || "N/A";
+    clone.querySelector(".domain").textContent = selectedCountry.tld?.[0] || "N/A";
+    clone.querySelector(".currencies").textContent = Object.values(selectedCountry.currencies || {}).map((currency) => currency.name).join(", ") || "N/A";
+    clone.querySelector(".languages").textContent = Object.values(selectedCountry.languages || {}).join(", ") || "N/A";
 
+    // Create and append border countries
+
+    const borderContainer = clone.querySelector(".border-countries-container");
+    if(borderCountries.length > 0) {
+      borderCountries.forEach((borderCountry) => {
+        const span = document.createElement("span");
+        span.className = "border-country";
+        span.textContent = borderCountry;
+        borderContainer.appendChild(span);
+      })
+    } else {
+      const span = document.createElement("span");
+      span.className = "border-country";
+      span.textContent = "None";
+      borderContainer.appendChild(span);
+    }
+
+    // Clear previous content and append new content
+    countryDetailContainer.innerHTML = "";
+    countryDetailContainer.appendChild(clone);
+  
     // Add click handlers to border countries
     document.querySelectorAll(".border-country").forEach((btn, index) => {
       if (borderCountries[index] && btn.textContent !== "None") {

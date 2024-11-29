@@ -340,10 +340,8 @@ main {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  gap: 0.625rem;
-  margin-top: 1.5rem;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .border-country {
@@ -354,6 +352,17 @@ main {
   font-size: 0.75rem;
   cursor: pointer;
   box-shadow: var(--shadow);
+  transition:var(--transition);
+}
+
+.border-countries-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+
+.border-country:hover {
+  transform: translateY(-2px);
 }
 
 /*--- Media Queries ---*/
@@ -432,6 +441,7 @@ main {
   .country-detail {
     flex-direction: row;
     gap: 9rem;
+    align-items: center;
   }
 
   .country-detail img {
@@ -457,7 +467,29 @@ main {
     grid-template-columns: 1fr 1fr;
   }
 
+
   .border-countries {
-    justify-content: flex-start;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .border-countries-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.625rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    /* Hide scrollbar but keep functionality */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .border-countries-container::-webkit-scrollbar {
+    display: none;
+  }
+  .border-country {
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 }
